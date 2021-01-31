@@ -1,0 +1,28 @@
+{
+  "name": "hero-bot",
+  "version": "1.0.0",
+  "description": "hero bot telegram",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francoZuniga32/hero-bot.git"
+  },
+  "keywords": [
+    "github",
+    "bot",
+    "telegram"
+  ],
+  "author": "Julien Bisconti <julienbi@unity3d.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francoZuniga32/hero-bot/issues"
+  },
+  "homepage": "https://github.com/francoZuniga32/hero-bot#readme",
+  "dependencies": {
+    "octonode": "^0.10.0",
+    "telegraf": "^4.0.2"
+  }
+}
