@@ -1,17 +1,20 @@
-//llamamos los modulos de telegraf y octonode
+//llamamos los modulos de telegraf, octonode y moment
 var github = require('octonode');
 const { Telegraf } = require('telegraf')
 var moment = require('moment'); // require
+
 moment().format(); 
 
-const token = require('../configuracion.json');
-const bot = new Telegraf(token.telegram);
+const configuracion = require('../configuracion.json');
+const bot = new Telegraf(configuracion.telegram);
 
 const database = require('./database');
 
-//instanciamos
-const client = github.client(token.github);
+//instanciamos el repositorio donde realizaremos los issues
+const client = github.client(configuracion.github);
 var repo = client.repo('francoZuniga32/hero-bot');
+
+//comandos de telegram
 
 bot.start((contexto) => {
     console.log(contecto.chat);
@@ -32,9 +35,11 @@ bot.command('registrar', (ctx)=>{
         let nombre = ctx.chat.username;
         console.log(chatId);
 
-        database.query('INSERT INTO `hero` (`id`, `nombre`, `chat_id`) VALUES (NULL, ?, ?)',[nombre, chatId], (error, results)=>{
-            if (error) throw error;
-            else ctx.reply("Se ha registrado como hero!!");
+        database.query('INSERT INTO `hero` (`nombre`, `chat_id`) VALUES (?, ?)',[nombre, chatId], (error, results)=>{
+            if (error){
+                console.log(error);
+                ctx.reply("Usted ya esta registrado como un hero!!");
+            } else ctx.reply("Se ha registrado como hero!!");
         });
     }
 });
