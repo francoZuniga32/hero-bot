@@ -50,3 +50,4 @@ Luego de esto clonamos el repositorio y ejecutamos el comando para poder instala
 
 con esto podra comunicar a su bot con telegram y a la api de github. 
 
+Luego de esto vamos a comenzar con la instalacion de los modulos de npm con `npm install`. De esta manera podremos tener los modulos de telegraf y octanode que son las cosas que usaremos para poder poner en funcionamiento el bot.
